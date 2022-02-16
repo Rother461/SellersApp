@@ -1,0 +1,90 @@
+<div class="col-md-8">
+  <h3 class="text-center">New campaign</h3>
+  <h3 class="text-center">balance: {{balance}} </h3>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="campaignName">Name:</label>
+      <div class="col-sm-10">
+        <input type="text" (input)="onNameChange($event.target)" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="keywords">Keywords:</label>
+      <div class="col-sm-10">
+
+        <mat-form-field>
+          <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let w of filtredValues1" [value]="w">
+              {{w}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="bidAmount">Bid amount:</label>
+      <div class="col-sm-10">
+        <input type="number" (input)="onBidChange($event.target)" required placeholder="Min. value is 200">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="campaignFund">Fund:</label>
+      <div class="col-sm-10">
+        <input type="number" (input)="onFundChange($event.target)" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="status">Status:</label>
+      <div class="col-sm-10">
+        <select name="status" (input)="onStatusChange($event.target)" required>
+          <option value="ON"> </option>
+          <option value="ON">ON</option>
+          <option value="OFF">OFF</option>
+
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="town">Town:</label>
+      <div class="col-sm-10">
+        <select (input)="onTownChange($event.target)" name="town" required class="form-control" id="town">
+          <option *ngFor="let city of cities">{{city}}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="radius">Radius:</label>
+      <div class="col-sm-10">
+        <input type="number" (input)="onRadiusChange($event.target)" required placeholder="in km">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+
+<button type="button" (click)="onSubmit()">Create</button>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    var Words = [
+      "Food", "Football", "Programming", "Travel", "Sport", "Sleep", "Body", "Head", "Hair", "Smartphone",
+      "Computer", 'Traning', 'Gym', "Dogs"];
+    $("#keywords").autocomplete({
+      source: Words
+    });
+  });
+</script>

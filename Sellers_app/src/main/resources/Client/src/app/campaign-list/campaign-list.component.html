@@ -1,0 +1,48 @@
+<div class="col-md-10">
+    <h3 class="text-center">Campaign list</h3>
+    <span>balance: {{balance}}</span>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Campaign name
+            </th>
+            <th>
+                Keywords
+            </th>
+            <th>
+                Bid amount
+            </th>
+            <th>
+                Campaign fund
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Town
+            </th>
+            <th>
+                Radius[km]
+            </th>
+
+        </tr>
+        <tr *ngFor="let c of campaings">
+
+            <td>{{c.campaignName}}</td>
+            <td>{{c.keywords}}</td>
+            <td>{{c.bidAmount}}</td>
+            <td>{{c.campaignFund}}</td>
+            <td>{{c.status}}</td>
+            <td>{{c.town}}</td>
+            <td>{{c.radius}}</td>
+            <td>
+                <button class="btn btn-warning show-on-hover-content mr-10" [routerLink]="['edit',c.id]">
+                    <span class="glyphicon glyphicon-edit">Edit</span>
+                </button>
+                <div class="modal-body">
+                    <button type="button" class="delete" title="delete campaign" (click)="deleteCampaign(c)">x</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
