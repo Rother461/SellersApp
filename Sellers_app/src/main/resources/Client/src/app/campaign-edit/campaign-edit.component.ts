@@ -5,6 +5,7 @@ import { Resources } from '../Resource';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { BalanceServiceService } from '../balance-service.service';
 @Component({
   selector: 'app-campaign-edit',
   templateUrl: './campaign-edit.component.html',
@@ -14,7 +15,7 @@ export class CampaignEditComponent implements OnInit {
   cities = Resources.POLAND_CITIES;
   words = Resources.Words;
   minValue = Resources.MIN_BID_AMOUNT;
-  budget = 100000;
+  balance: number = 0;
   filtredValues: string[] = Resources.Words;
   myControl: FormControl = new FormControl();
 
@@ -28,7 +29,7 @@ export class CampaignEditComponent implements OnInit {
     town: "",
     radius: 0
   };
-  constructor(private campaigneService: CampaignsService, private location: Location, private route: ActivatedRoute) { }
+  constructor(private campaigneService: CampaignsService, private location: Location, private route: ActivatedRoute,private balanceService: BalanceServiceService) { }
 
   ngOnInit(): void {
     this.campaing.id = this.route.snapshot.params["id"] as number;
@@ -36,7 +37,9 @@ export class CampaignEditComponent implements OnInit {
       this.campaing = data
       console.log(this.campaing)
     })
-
+    this.balanceService.get().subscribe((balance) => {
+      this.balance = balance;
+    });
 
 
 
@@ -74,7 +77,13 @@ export class CampaignEditComponent implements OnInit {
 
   }
   save(): void {
-
+    if(this.balance > this.campaing.campaignFund)
+    this.balanceService.updateBalance(this.campaing.campaignFund);
+    else
+    {
+    console.error("not enough balance");
+    return;
+    }
     if (this.campaing) {
       this.campaigneService.update(this.campaing.id, this.campaing)
         .subscribe(() => this.goBack());

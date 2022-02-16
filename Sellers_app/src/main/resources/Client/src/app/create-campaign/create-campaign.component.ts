@@ -77,7 +77,13 @@ export class CreateCampaignComponent implements OnInit {
 
       return;
     }
+    if(this.balance > this.campaing.campaignFund)
     this.balanceService.updateBalance(this.campaing.campaignFund);
+    else
+    {
+    console.error("not enough balance");
+    return;
+    }
 
     this.campaigneService.create(this.campaing).subscribe((r) => this.router.navigate(["/"]))
 
