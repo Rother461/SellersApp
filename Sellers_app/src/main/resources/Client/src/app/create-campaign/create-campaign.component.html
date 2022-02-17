@@ -72,19 +72,5 @@
 </div>
 
 
-
+<button type="button" (click)="goBack()">Back</button>
 <button type="button" (click)="onSubmit()">Create</button>
-
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-  $(function () {
-    var Words = [
-      "Food", "Football", "Programming", "Travel", "Sport", "Sleep", "Body", "Head", "Hair", "Smartphone",
-      "Computer", 'Traning', 'Gym', "Dogs"];
-    $("#keywords").autocomplete({
-      source: Words
-    });
-  });
-</script>
