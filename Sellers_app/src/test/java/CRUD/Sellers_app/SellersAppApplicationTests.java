@@ -1,4 +1,4 @@
-package Futurum.Sellers_app;
+package CRUD.Sellers_app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,7 @@
-package Futurum.Sellers_app.Controllers;
+package CRUD.Sellers_app.Controllers;
 
-import Futurum.Sellers_app.Model.Campaign;
-import Futurum.Sellers_app.Model.CampaignRepository;
+import CRUD.Sellers_app.Model.Campaign;
+import CRUD.Sellers_app.Model.CampaignRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

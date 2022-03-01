@@ -1,4 +1,4 @@
-package Futurum.Sellers_app.Model;
+package CRUD.Sellers_app.Model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package Futurum.Sellers_app.Controllers;
+package CRUD.Sellers_app.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:4200")

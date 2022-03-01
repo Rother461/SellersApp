@@ -1,9 +1,6 @@
-package Futurum.Sellers_app.Model;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
+package CRUD.Sellers_app.Model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "campaign")

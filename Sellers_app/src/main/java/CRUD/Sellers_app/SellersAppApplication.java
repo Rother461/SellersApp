@@ -1,4 +1,4 @@
-package Futurum.Sellers_app;
+package CRUD.Sellers_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
